@@ -1,6 +1,6 @@
 from funcionesGlobales import *
 from menu_administrador import*
-from menu_de_usuarios import*
+from menu_usuarios import*
 
 #constantes
 #---------------

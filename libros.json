@@ -10,6 +10,7 @@
     },
     {
         "nombre": "El Principito",
+        "id":1,
         "edad": 7,
         "autor": "Antoine de Saint-Exupéry",
         "categoria": 3,
@@ -18,6 +19,7 @@
     },
     {
         "nombre": "Librogenerico_romance",
+        "id":1,
         "edad": 15,
         "autor": "J. K. Rowling",
         "categoria": 5,
@@ -26,6 +28,7 @@
     },
     {
         "nombre": "Librogenerico_accion",
+        "id":1,
         "edad": 15,
         "autor": "J. K. Rowling",
         "categoria": 1,
@@ -34,6 +37,7 @@
     },
     {
         "nombre": "Librogenerico_biografia",
+        "id":1,
         "edad": 15,
         "autor": "J. K. Rowling",
         "categoria": 2,
@@ -42,6 +46,7 @@
     },
     {
         "nombre": "Librogenerico_ficcion",
+        "id":1,
         "edad": 15,
         "autor": "J. K. Rowling",
         "categoria": 4,

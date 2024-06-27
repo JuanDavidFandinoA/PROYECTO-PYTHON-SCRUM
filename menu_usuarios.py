@@ -34,10 +34,23 @@ def menu_usuarios():
     
 def buscador():
     nombre = input("Ingrese el nombre del libro que desea buscar: ")
-    print("")
-
+    nombre=nombre.title()
+    
     datos_libros=leerJson("libros")
-    print(datos_libros)
+    for libro in datos_libros:
+        if libro["nombre"]==nombre:
+            print(f"Se encontrò el libro de nombre: {nombre}, los datos de este libro son:")
+            print("***************************************************************")
+            print("Nombre: " + libro["nombre"])
+            print("Id: " + str(libro["id"]))
+            print("Edad: " + str(libro["edad"]))
+            print("Autor(a): " + libro["autor"])
+            print("Categoria: " + str(libro["categoria"]))
+            print("Descripcion: " + libro["descripcion"])
+            print("Publicacion: " + str(libro["publicacion"]))
+            return None
+    print(f"No se encontrò el libro de nombre: {nombre}")
+
 
     # generos = ["ficcion"]
     # for genero in generos:

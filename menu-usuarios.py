@@ -15,21 +15,13 @@ def menu_usuarios():
         buscador()
     elif opcion==2:
         mostrar_generos()
+    elif opcion==3:
+        comprar_libro()
+    else:
+        print("Salida exitosa :) \n")
 
-def mostrar_generos():
-    print("""
-Los generos disponibles son:
-0 - Biografia
-1 - Ficcion
-2 - Accion
-3 - Fantasia
-4 - Romance
-*******************************************************""")
-    genero_escogido = listaOpciones("Ingrese el numero del genero que desea buscar","Por favor ingrese un numero valido",4)
 
-    datos_ficcion=leerJson(genero_escogido)
-    print(datos_ficcion)
-    print("Se debía ingresar un genero correcto")
+
     
 def buscador():
     nombre = input("Ingrese el nombre del libro que desea buscar: ")
@@ -45,5 +37,32 @@ def buscador():
                 print("Descripción: " + libro.get("descripcion"))
                 return None
     print("Libro no encontrado")
+
+def mostrar_generos():
+    print("""
+Los generos disponibles son:
+0 - Biografia
+1 - Ficcion
+2 - Accion
+3 - Fantasia
+4 - Romance
+
+*******************************************************""")
+    generos_disponibles=["biografía","ficcion","accion","fantasia","romance"]
+    genero_escogido = listaOpciones("Ingrese el numero del genero que desea buscar","Por favor ingrese un numero valido",4)
+    genero_escogido=generos_disponibles[genero_escogido]
+
+    datos_ficcion=leerJson(genero_escogido)
+
+    print(f"Los libros encontrados para el genero {genero_escogido} son: \n")
+    for libro in datos_ficcion:
+        print("Nombre: " + libro["nombre"])
+        print("Autor(a): " + libro["autor"])
+        print("Edad: " + str(libro["edad"]))
+        print("Descripción: " + libro["descripcion"])
+        print("\n*****************************************************\n")
+
+def comprar_libro():
+    None
 
 menu_usuarios()

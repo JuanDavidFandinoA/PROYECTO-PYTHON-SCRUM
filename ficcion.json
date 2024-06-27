@@ -1,0 +1,15 @@
+[
+    {
+        "nombre": "Harry Potter",
+        "edad": 15,
+        "descripcion": "Niño mago matar voldemort",
+        "autor" : "J. K. Rowling"
+    },
+    {
+        "nombre": "El Principito",
+        "edad":7,
+        "descripcion": "Adulto con miedo a madurar",
+        "autor" : "Antoine de Saint-Exupéry"
+
+    }
+]

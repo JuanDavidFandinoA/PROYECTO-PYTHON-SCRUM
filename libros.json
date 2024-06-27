@@ -1,0 +1,51 @@
+[
+    {
+        "nombre": "Harry Potter",
+        "id":1,
+        "edad": 15,
+        "autor": "J. K. Rowling",
+        "categoria": 3,
+        "descripcion": "Niño mago matar voldemort",
+        "publicacion": 2006
+    },
+    {
+        "nombre": "El Principito",
+        "edad": 7,
+        "autor": "Antoine de Saint-Exupéry",
+        "categoria": 3,
+        "descripcion": "Adulto con miedo a madurar",
+        "publicacion": 2006
+    },
+    {
+        "nombre": "Librogenerico_romance",
+        "edad": 15,
+        "autor": "J. K. Rowling",
+        "categoria": 5,
+        "descripcion": "Niño mago matar voldemort",
+        "publicacion": 2006
+    },
+    {
+        "nombre": "Librogenerico_accion",
+        "edad": 15,
+        "autor": "J. K. Rowling",
+        "categoria": 1,
+        "descripcion": "Niño mago matar voldemort",
+        "publicacion": 2006
+    },
+    {
+        "nombre": "Librogenerico_biografia",
+        "edad": 15,
+        "autor": "J. K. Rowling",
+        "categoria": 2,
+        "descripcion": "Niño mago matar voldemort",
+        "publicacion": 2006
+    },
+    {
+        "nombre": "Librogenerico_ficcion",
+        "edad": 15,
+        "autor": "J. K. Rowling",
+        "categoria": 4,
+        "descripcion": "Niño mago matar voldemort",
+        "publicacion": 2006
+    }
+]

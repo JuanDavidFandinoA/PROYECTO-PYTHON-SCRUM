@@ -1,56 +1,136 @@
 [
     {
-        "nombre": "Harry Potter",
-        "id":1,
+        "nombre": "odisea",
+        "edad": 17,
+        "autor": "Javier Negrete",
+        "categoria": 1,
+        "descripcion": "La historia de odiseo como jamas la hubieras imaginado",
+        "publicacion": 2019
+    },
+
+    {
+        "nombre": "Padre: del seminario al narcotrafico",
+        "edad": 19,
+        "autor": "Jose Antonio Kapelo",
+        "categoria": 1,
+        "descripcion": "son las memorias y vivencias de un narco español y sus inicios en la mafia",
+        "publicacion": 2021
+    },
+
+    {
+        "nombre": "Esperando el diluvio",
+        "edad": 18,
+        "autor": "Dolores Redondo",
+        "categoria": 1,
+        "descripcion": "Asesino mata a 3 mujeres en Glasgow, pero hoy en dia nadie sabe quien fue ",
+        "publicacion": 2022
+    },
+
+
+    {
+        "nombre": "La sociedad de la nieve",
+        "edad": 20,
+        "autor": "Pablo Vierchi",
+        "categoria": 2,
+        "descripcion": "Avion Uruguayo se estrella en los andes y los sobrevivientes cuentas sus vivencias",
+        "publicacion": 2008
+    },
+
+    {
+        "nombre": "Diana: su verdadera historia",
+        "edad": 19,
+        "autor": "Andrew Morton",
+        "categoria": 2,
+        "descripcion": "Una forma diferente de ver la monarquia britanica y todo lo que conlleva ser proclamada princesa-reina de inglaterra",
+        "publicacion": 1992
+    },
+
+    {
+        "nombre": "Steve Jobs",
+        "edad": 15,
+        "autor": "Walter Isaacson",
+        "categoria": 2,
+        "descripcion": "Libro biografico de steve jobs y como ascendio a la cima del mundo tecnologico",
+        "publicacion": 2011
+    },
+
+    {
+        "nombre": "Harry Potter y la piedra filosofal",
         "edad": 15,
         "autor": "J. K. Rowling",
-        "categoria": 1,
-        "descripcion": "Niño mago matar voldemort",
-        "publicacion": 2006
+        "categoria": 3,
+        "descripcion": "La historia del niño mago que sobrevivio",
+        "publicacion": 1997
+    },
+
+    {
+        "nombre": "El Hobbit",
+        "edad": 14,
+        "autor": "J.R.R Tolkien",
+        "categoria": 3,
+        "descripcion": "El hobbit Bilbo Bolsón vive una vida tranquila hasta que el mago Gandalf aparece y le encomienda una misión",
+        "publicacion": 1937
     },
     {
         "nombre": "El Principito",
-        "id":2,
         "edad": 7,
-        "autor": "Antoine de Saint-Exupéry",
+        "autor": "Antoine Saint-Exupéry",
         "categoria": 3,
         "descripcion": "Adulto con miedo a madurar",
-        "publicacion": 2006
+        "publicacion": 1943
     },
+
     {
-        "nombre": "Librogenerico_romance",
-        "id":3,
-        "edad": 15,
-        "autor": "J. K. Rowling",
-        "categoria": 5,
-        "descripcion": "Niño mago matar voldemort",
-        "publicacion": 2006
-    },
-    {
-        "nombre": "Librogenerico_accion",
-        "id":4,
-        "edad": 15,
-        "autor": "J. K. Rowling",
-        "categoria": 1,
-        "descripcion": "Niño mago matar voldemort",
-        "publicacion": 2006
-    },
-    {
-        "nombre": "Librogenerico_biografia",
-        "id":5,
-        "edad": 15,
-        "autor": "J. K. Rowling",
-        "categoria": 2,
-        "descripcion": "Niño mago matar voldemort",
-        "publicacion": 2006
-    },
-    {
-        "nombre": "Librogenerico_ficcion",
-        "id":6,
-        "edad": 15,
-        "autor": "J. K. Rowling",
+        "nombre": "Soy Leyenda",
+        "edad": 17,
+        "autor": "Richard Matheson",
         "categoria": 4,
-        "descripcion": "Niño mago matar voldemort",
-        "publicacion": 2006
+        "descripcion": "Una guerra bacteriologica que acabo con el mundo y la constante lucha del protagonista de sobrevivir a los vampiros",
+        "publicacion": 1954
+    },
+
+    {
+        "nombre": "Dune",
+        "edad": 16,
+        "autor": "Frank Herbert",
+        "categoria": 4,
+        "descripcion": "Una historia fuera de este mundo ",
+        "publicacion": 1965
+    },
+
+    {
+        "nombre": "Yo,robot",
+        "edad": 16,
+        "autor": "Issac Asimov",
+        "categoria": 4,
+        "descripcion": "relatos de ficcion sobre la robotica y sus 3 leyes mas importantes, y el pensamiento humano en robots inteligentes ",
+        "publicacion": 1950
+    },
+
+    {
+        "nombre": "Ugly Love",
+        "edad": 15,
+        "autor": "Collen Hoover",
+        "categoria": 5,
+        "descripcion": "El no quiere amor, ella no tiene tiempo para el amor",
+        "publicacion": 2014
+    },
+
+    {
+        "nombre": "Amor en tiempos de colera",
+        "edad": 17,
+        "autor": "Gabriel Garcia Marquez",
+        "categoria": 5,
+        "descripcion": "el verdadero amor que perdura y supera las adversidades de la vida",
+        "publicacion": 1985
+    },
+
+    {
+        "nombre": "Bajo la misma estrella",
+        "edad": 15,
+        "autor": "Jhon Green",
+        "categoria": 5,
+        "descripcion": "Ella piensa que las puertas del amor se le cierran por su cancer, el la va a amar hasta el fin de sus dias",
+        "publicacion": 2014
     }
 ]

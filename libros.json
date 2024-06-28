@@ -4,13 +4,13 @@
         "id":1,
         "edad": 15,
         "autor": "J. K. Rowling",
-        "categoria": 3,
+        "categoria": 1,
         "descripcion": "Niño mago matar voldemort",
         "publicacion": 2006
     },
     {
         "nombre": "El Principito",
-        "id":1,
+        "id":2,
         "edad": 7,
         "autor": "Antoine de Saint-Exupéry",
         "categoria": 3,
@@ -19,7 +19,7 @@
     },
     {
         "nombre": "Librogenerico_romance",
-        "id":1,
+        "id":3,
         "edad": 15,
         "autor": "J. K. Rowling",
         "categoria": 5,
@@ -28,7 +28,7 @@
     },
     {
         "nombre": "Librogenerico_accion",
-        "id":1,
+        "id":4,
         "edad": 15,
         "autor": "J. K. Rowling",
         "categoria": 1,
@@ -37,7 +37,7 @@
     },
     {
         "nombre": "Librogenerico_biografia",
-        "id":1,
+        "id":5,
         "edad": 15,
         "autor": "J. K. Rowling",
         "categoria": 2,
@@ -46,7 +46,7 @@
     },
     {
         "nombre": "Librogenerico_ficcion",
-        "id":1,
+        "id":6,
         "edad": 15,
         "autor": "J. K. Rowling",
         "categoria": 4,

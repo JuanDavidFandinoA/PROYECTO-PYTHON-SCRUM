@@ -1,7 +1,7 @@
 {
-    "accion":1,
-    "biografia":2,
-    "fantasia":3,
-    "ficcion":4,
-    "romance":5
+    "1":"accion",
+    "2":"biografia",
+    "3":"fantasia",
+    "4":"ficcion",
+    "5":"romance"
 }

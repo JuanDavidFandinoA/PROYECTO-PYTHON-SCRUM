@@ -1,21 +1,36 @@
+from funcionesGlobales import *
+
 def usuario_o_admin():
-    print("¡BIENVENIDO, ¿COMO DESEAS INGRESAR?")
-    print("**************************************")
-    print("1). Administrador")
-    print("2). Usuario")
-    print("0). Salir")
+    print("""¡BIENVENIDO, ¿COMO DESEAS INGRESAR?")
+          
+**************************************
+          
+1). Administrador
+2). Usuario
+0). Salir
+
+**************************************
+""")
+    opcion = listaOpciones("Ingrese la opcion","Numero no valido, ingrese de nuevo",2)
+    if opcion == 1:
+        if contraseña_admin():
+            menu_administrador()
+    elif opcion == 2:
+        pass
+    else:
+        return None
 
 
 def menu_administrador():
-    print("¡HOLA DE NUEVO ADMINISTRADOR!,¿QUE TE GUSTARIA HACER HOY?")
+    print("""¡HOLA DE NUEVO ADMINISTRADOR!,¿QUE TE GUSTARIA HACER HOY?")
     print("**************************************")
     print("1). Añadir libro")
-    print("2). Modificar libro")
-    print("3). Eliminar Libro")
-    print("4). Mostrar Libros")
-    print("5). Eliminar usuarios")
-    print("6). Modificar usuarios")
-    print("0). Salir")
+2 - Modificar libro")
+3 - Eliminar Libro")
+4 - Mostrar Libros")
+5 - Eliminar usuarios")
+6 - Modificar usuarios")
+0 - Salir""")
 
     opc= input("ingrese una opcion: ")
     if opc== 1:
@@ -56,12 +71,12 @@ def modificar_usuarios():
 
 def contraseña_admin():
     contra="admin12345"
-    ingresar=input("Ingresa la contraseña:")
+    ingresar=input("Ingresa la contraseña: ")
     if ingresar == contra:
-        print(menu_administrador)
+        return True
     else:
-        print("contraseña incorrecta")
-        return -1
+        print("Contraseña incorrecta\n")
+        return False
 
 
 def pedir_opcion():
@@ -74,3 +89,5 @@ def pedir_opcion():
         print("Valor inválido")
         print("***************************************")
         return -1     
+
+usuario_o_admin()

@@ -86,6 +86,35 @@ def mostrar_generos():
 def comprar_libro():
     None
 
-menu_usuarios()
+def iniciar_sesion():
+    datos= leerJson("usuarios")
+    print("-------------------------------------------------------------------------")
+    print("")
+    print("¡Inicia sesión para comenzar la aventura!\n".center(70))
+    print("-------------------------------------------------------------------------")
+    print("")
 
-"/bin/python /run/media/mmcblk0p1/IdeaProjects/PROYECTO-PYTHON-SCRUM/menu-usuarios.py"
+    documento_pedido= input("Ingresa tu número de documento: ")
+    while not len(documento_pedido) == 10 or documento_pedido=="0":
+        print("\nDocumento no válido!, Intentálo de nuevo o ingresa '0' para salir de iniciar sesión.")
+        documento_pedido= input("\nIngresa tu número de documento: ")
+        if documento_pedido == "0":
+            print ("\nDecidiste salir de iniciar sesión, ádios!")
+            break
+
+    encontrado= False
+    for usuario in datos["usuarios"]:
+            if documento_pedido == usuario["documento"]:
+                encontrado=True
+                contrasena_pedida= input("Ingresa tu contraseña: ")
+
+                while not contrasena_pedida == usuario["contrasena"] or contrasena_pedida== "0":
+                    print("\nContraseña incorrecta!, Intentálo de nuevo o ingresa '0' para salir de iniciar sesión.")
+                    contrasena_pedida= input("\nIngresa tu contraseña: ")
+                    if contrasena_pedida == "0":
+                        print ("\nDecidiste salir de iniciar sesión, ádios!")
+                        break
+                if contrasena_pedida == usuario["contrasena"]:
+                    print(f"\nHola {usuario['nombre']}, es un placer tenerte de vuelta!")
+
+iniciar_sesion()

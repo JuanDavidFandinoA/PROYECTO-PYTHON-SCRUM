@@ -1,7 +1,7 @@
 from funcionesGlobales import *
 
 def usuario_o_admin():
-    print("""¡BIENVENIDO, ¿COMO DESEAS INGRESAR?")
+    print("""¡BIENVENIDO, ¿COMO DESEAS INGRESAR?
           
 **************************************
           
@@ -12,60 +12,136 @@ def usuario_o_admin():
 **************************************
 """)
     opcion = listaOpciones("Ingrese la opcion","Numero no valido, ingrese de nuevo",2)
-    if opcion == 1:
-        if contraseña_admin():
-            menu_administrador()
-    elif opcion == 2:
-        pass
-    else:
-        return None
+    return opcion
 
 
 def menu_administrador():
-    print("""¡HOLA DE NUEVO ADMINISTRADOR!,¿QUE TE GUSTARIA HACER HOY?")
-    print("**************************************")
-    print("1). Añadir libro")
-2 - Modificar libro")
-3 - Eliminar Libro")
-4 - Mostrar Libros")
-5 - Eliminar usuarios")
-6 - Modificar usuarios")
+    datosLibros = leerJson("libros")
+    datosUsuarios = leerJson("usuarios")
+    print("""¡HOLA DE NUEVO ADMINISTRADOR!,¿QUE TE GUSTARIA HACER HOY?
+**************************************
+1 - Añadir libro
+2 - Modificar libro
+3 - Eliminar Libro
+4 - Mostrar Libros
+5 - Eliminar usuarios
+6 - Modificar usuarios
 0 - Salir""")
 
-    opc= input("ingrese una opcion: ")
+    opc= listaOpciones("Ingrese una opcion","Error, valor incorrecto, intentelo de nuevo",6)
     if opc== 1:
         print()
     elif opc== 2:
-        print(modificar_libro)
+        libros = leerJson("libros")
+        opcionLibro = input("Ingrese el nombre del libro que desea modificar: ")
+        for libro in libros:
+            if libro["nombre"] == opcionLibro:
+                datos = modificar_libro(datosLibros)
     elif opc==3:
-        print()
+        datosLibros = eliminar_libro(datosLibros)
+        guardarJson("libros",datosLibros)
     elif opc == 4:
         print()
     elif opc == 5:
         print()
     elif opc== 6:
-        print(modificar_usuarios)
+        usuarios = list(leerJson("usuarios"))
+        opcionUsuarios = listaOpciones("Ingrese el documento del usuario que desea modificar","Solo se permiten numeros, intentelo de nuevo")
+        for usuario in usuarios:
+            if usuario["documento"] == opcionUsuarios:
+                usuarioModificado = modificar_usuarios(usuario)
+                usuarios[usuarios.index(usuario)] = usuarioModificado
+        print("Documento no encontrado")
         
 
 
-def modificar_libro():
-    print("¿Que quieres modificar?")
-    print("**************************************")
-    print("1). Nombre")
-    print("2). Edad")
-    print("3). Descripcion")
-    print("4). Autor")
-    print("0). salir")
+def modificar_libro(datos):
+   datos=dict(datos)
+   nombre= input("ingrese el nombre del libro que desea modificar:")
+   for i in range(len(datos["libros"])):
+        if datos["libros"][i]["nombre"] == nombre:
 
-def modificar_usuarios():
+            while True:
+                print("¿Que te gustaria cambiar?")
+                print("******************************")
+                print("1). Para modificar el Nombre: ")
+                print("2). Para modificar la edad: ")
+                print("3). Para modificar el Autor: ")
+                print("4). Para modificar la ategoria: ")
+                print("5). Para modificar la Dscripcion: ")
+                print("6). Para modificar la Publicacion: ")
+                print("7). Para modificar el Stock: ")
+                
+                print("0). Para salir ")
+                
+                opc= int(input(" Ingrese la opcion: "))
+
+                if opc == 1:
+                    datos["libros"][i]["nombre"]= input("Ingrese el nuevo Nombre: ")
+                    print(" ¡NOMRBE GUARDADO CON EXITO!")
+                    print("----------------------------------")
+
+                elif opc == 2:
+                    datos["libros"][i]["edad"]= input("Ingrese la nueva Edad: ")
+                    print(" ¡EDAD GUARDADA CON EXITO!")
+                    print("----------------------------------")
+
+
+                elif opc == 3:
+                    datos["libros"][i]["autor"]= input("Ingrese el nuevo Autor:")
+                    print(" ¡AUTOR GUARDADO CON EXITO!")
+                    print("----------------------------------")
+
+
+                elif opc == 4:
+                    datos["libros"][i]["categoria"]= input("Ingrese la nueva categoria: ")
+                    print(" ¡CATEGORIA GUARDADA CON EXITO!")
+                    print("----------------------------------")
+
+
+                elif opc == 5:
+                    datos["libros"][i]["descripcion"]= input("Ingrese la nueva descripcion: ")
+                    print(" ¡DESCRIPCION GUARDADO CON EXITO!")
+                    print("----------------------------------")
+
+
+                elif opc == 6:
+                    datos["libros"][i]["publicacion"]= input("Ingrese el nuevo año de publicacion: ")
+                    print(" ¡AÑO DE PUBLICACION GUARDADO CON EXITO!")
+                    print("----------------------------------")
+
+
+                elif opc == 7:
+                    datos["libros"][i]["stock"]= input("Ingrese el nuevo Stock:")
+                    print(" ¡STOCK GUARDADO CON EXITO!")
+                    print("----------------------------------")
+                
+                elif opc == 0:
+                    break
+            break
+        return datos            
+
+def modificar_usuarios(usuario):
     print("¿Que quieres modificar?")
     print("**************************************")
     print("1). Nombre")
     print("2). Edad")
-    print("3). Documento")
+    print("3). Correo Electronico")
     print("4). Libros comprados")
     print("5). Tipo cliente")
     print("0). salir")
+    opcion = listaOpciones("Ingrese la opcion deseada","Opcion no valida, intentelo de nuevo",5)
+    if opcion == 1:
+        usuario["nombre"] = input("Ingrese el nuevo nombre que desea: ")
+    elif opcion == 2:
+        usuario["edad"] = listaOpciones("Ingrese la nueva edad","Edad no valida, intentelo de nuevo",99)
+    elif opcion == 3:
+        usuario["email"] = input("Ingrese el nuevo correo de recuperación: ")
+    elif opcion == 4:
+        pass
+    elif opcion == 5:
+        pass
+    return usuario
 
 
 
@@ -78,16 +154,20 @@ def contraseña_admin():
         print("Contraseña incorrecta\n")
         return False
 
-
-def pedir_opcion():
-    opc = 0
-    try:
-        opc = int(input("Ingrese su opción: "))
-        print("***************************************")
-        return opc
-    except Exception:
-        print("Valor inválido")
-        print("***************************************")
-        return -1     
-
-usuario_o_admin()
+#Eliminar libro
+def eliminar_libro(datos):
+    datos = dict(datos)
+    ref =input("Ingrese el nombre de el libro a eliminar: ")
+    for i in range(len(datos["libros"])):
+        if datos["libros"][i]["nombre"] == ref:
+            opc=int(input("Esta seguro que desea eliminar este libro ( 1 ) Si ( 2 ) No "))
+            if opc ==1:
+                datos["libros"].pop(i)
+                print("plan eliminado!")
+                return datos
+            elif opc ==2:
+                print("Cancelado con exito")
+                return datos
+           
+    print("plan o paquete no encontrado")
+    return datos

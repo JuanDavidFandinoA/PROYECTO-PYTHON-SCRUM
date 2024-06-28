@@ -1,11 +1,34 @@
 from funcionesGlobales import *
-CAT_ACCION=1
-CAT_BIOGRAFIA=2
-CAT_FANTASIA=3
-CAT_FICCION=4
-CAT_ROMANCE=5
+#menu para iniciar sesion
+def iniciar_sesion():
+    datos= leerJson("usuarios")
+    print("-------------------------------------------------------------------------")
+    print("")
+    print("¡Inicia sesión para comenzar la aventura!\n".center(70))
+    print("-------------------------------------------------------------------------")
+    print("")
 
+    documento_pedido = listaOpciones("Ingresa tu número de documento","Error, solo se permiten numeros")
+    while len(str(documento_pedido)) != 10 or documento_pedido == 0:
+        documento_pedido = listaOpciones("¡Documento no válido!, intentálo de nuevo o ingresa '0' para salir","Error, solo se permiten numeros")
+        if documento_pedido == 0:
+            print ("\nDecidiste salir de iniciar sesión, ádios!")
+            break
 
+    encontrado = False
+    for usuario in datos:
+            if documento_pedido == usuario["documento"]:
+                encontrado=True
+                contrasena_pedida= input("Ingresa tu contraseña: ")
+
+                while contrasena_pedida != usuario["contrasena"] or contrasena_pedida== "0":
+                    contrasena_pedida = input("\nContraseña incorrecta!, Intentálo de nuevo o ingresa '0' para salir de iniciar sesión: ")
+                    if contrasena_pedida == "0":
+                        print ("\nDecidiste salir de iniciar sesión, ádios!")
+                        break
+                if contrasena_pedida == usuario["contrasena"]:
+                    print(f"\nHola {usuario['nombre']}, es un placer tenerte de vuelta!")
+#menu usuarios
 def menu_usuarios():
     while(True):
         print("""Ingreso de usuario exitoso
@@ -33,12 +56,8 @@ def menu_usuarios():
             break
         input("Oprima Enter para continuar\n")
 
-
-
-    
 def buscador():
     nombre = input("Ingrese el nombre del libro que desea buscar: ")
-    nombre=nombre.title()
     
     datos_libros=leerJson("libros")
     for libro in datos_libros:
@@ -85,36 +104,51 @@ def mostrar_generos():
 
 def comprar_libro():
     None
+    
+#Recibe datos de usuarios actuales, añade usuario nuevo, regresa datos con usuario añadido
+def registrar_usuario(datos):
+    usuario = {}
+    usuario["nombre"] = input("Ingrese el nombre: ")
+    documento_usuario_temp= listaOpciones("Ingrese el documento","Error, documento no valido")
 
-def iniciar_sesion():
-    datos= leerJson("usuarios")
-    print("-------------------------------------------------------------------------")
-    print("")
-    print("¡Inicia sesión para comenzar la aventura!\n".center(70))
-    print("-------------------------------------------------------------------------")
-    print("")
-
-    documento_pedido= input("Ingresa tu número de documento: ")
-    while not len(documento_pedido) == 10 or documento_pedido=="0":
-        print("\nDocumento no válido!, Intentálo de nuevo o ingresa '0' para salir de iniciar sesión.")
-        documento_pedido= input("\nIngresa tu número de documento: ")
-        if documento_pedido == "0":
-            print ("\nDecidiste salir de iniciar sesión, ádios!")
+    while True:
+        comprobacion_documento=False
+        for users in datos:
+            if users["documento"]!=documento_usuario_temp:
+                print(f"Ya se encuentra un usuario con documento: {documento_usuario_temp}")
+                documento_usuario_temp= listaOpciones("Ingrese el documento","Error, documento no valido")
+                comprobacion_documento=True
+        if comprobacion_documento==False:
             break
+        
 
-    encontrado= False
-    for usuario in datos["usuarios"]:
-            if documento_pedido == usuario["documento"]:
-                encontrado=True
-                contrasena_pedida= input("Ingresa tu contraseña: ")
 
-                while not contrasena_pedida == usuario["contrasena"] or contrasena_pedida== "0":
-                    print("\nContraseña incorrecta!, Intentálo de nuevo o ingresa '0' para salir de iniciar sesión.")
-                    contrasena_pedida= input("\nIngresa tu contraseña: ")
-                    if contrasena_pedida == "0":
-                        print ("\nDecidiste salir de iniciar sesión, ádios!")
-                        break
-                if contrasena_pedida == usuario["contrasena"]:
-                    print(f"\nHola {usuario['nombre']}, es un placer tenerte de vuelta!")
 
-iniciar_sesion()
+    while len(str(usuario["documento"])) != 10 or usuario["documento"] == 0:
+        usuario["documento"] = listaOpciones("¡Documento no válido! Intentálo de nuevo","Error, solo se permiten numeros")
+    usuario["contrasena"] = input("Ingrese su contraseña: ")
+    usuario["email"] = input("Ingrese un correo de recuperación: ")
+    usuario["edad"] = listaOpciones("Ingrese la edad","Edad no valida, intentelo de nuevo",99)
+    usuario["libros"]=[]
+    
+    datos.append(usuario)
+    print("¡Cliente registrado con éxito!")
+    return datos
+
+def pantalla_principal():
+    print("( 1 ) Para registrase")
+    print("( 2 ) Para iniciar sesión")
+    print("( 0 ) Para salir")
+
+#Recibe datos de usuarios actuales, regresa datos modificados
+def login(datos):
+    pantalla_principal()
+    opcion = listaOpciones("Ingrese la opcion que desea","Error, opcion no valida, intentelo de nuevo",2)
+    if opcion == 1:
+        datos=registrar_usuario(datos)
+        return datos
+    elif opcion == 2:
+        iniciar_sesion()
+    else:
+        print("Saliste exitosamente")
+        return datos

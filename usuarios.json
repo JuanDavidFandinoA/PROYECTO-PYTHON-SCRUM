@@ -1,11 +1,40 @@
-{
-    "usuarios": [
-        {
-            "nombre": "Eder Gil",
-            "documento": "1234567890",
-            "contrasena": "Amoamiperro@",
-            "email": "edersito@gmail.com",
-            "edad": 14
-        }
-    ]
-}
+[
+    {
+        "nombre": "Eder Gil",
+        "documento": 1234567890,
+        "contrasena": "Amoamiperro@",
+        "email": "edersito@gmail.com",
+        "edad": 14,
+        "libros": [
+            "El Hobbit"
+        ]
+    },
+    {
+        "nombre": "Nicolas Ruiz",
+        "documento": 1098620459,
+        "contrasena": "konan@",
+        "email": "Nicolasito@gmail.com",
+        "edad": 16,
+        "libros": [
+            "Yo,robot"
+        ]
+    },
+    {
+        "nombre": "Juan Fandino",
+        "documento": 109,
+        "contrasena": "Amoelpipi@",
+        "email": "Nicolasito@gmail.com",
+        "edad": 16,
+        "libros": [
+            "Yo,robot"
+        ]
+    },
+    {
+        "nombre": "Jose Daniel",
+        "documento": 1102359295,
+        "contrasena": "totoro",
+        "email": "jodacarmon@gmail.com",
+        "edad": 17,
+        "libros": []
+    }
+]

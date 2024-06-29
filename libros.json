@@ -134,6 +134,15 @@
             "descripcion": "Ella piensa que las puertas del amor se le cierran por su cancer, el la va a amar hasta el fin de sus dias",
             "publicacion": 2014,
             "stock": 33
+        },
+        {
+            "nombre": "El ciclo del Eterno Emperador",
+            "edad": 12,
+            "autor": "Laura Gallego",
+            "categoria": 3,
+            "descripcion": "Esta es la historia de Vintanelalandali, decimoseptima encarnaci\u00f3n del  Eterno Emperador, educada desde ni\u00f1a para tomar las riendas del imperio.",
+            "publicacion": 2021,
+            "stock": 22
         }
     ]
 }

@@ -35,10 +35,8 @@ def iniciar_sesion():
         print(f"*No se encontrò un usuario con numero de documento {documento_pedido}")
 #menu usuarios
 def menu_usuarios():
-    while(True):
-        print("""Ingreso de usuario exitoso
-
-********************************************************
+    while True:
+        print("""********************************************************
 
 1 - Acceder al buscador de libros
 2 - Acceder a los generos disponibles
@@ -65,12 +63,11 @@ def buscador():
     nombre = input("Ingrese el nombre del libro que desea buscar: ")
     
     datos_libros=leerJson("libros")
-    for libro in datos_libros:
-        if libro["nombre"]==nombre:
+    for libro in datos_libros["libros"]:
+        if (libro["nombre"]).lower()==nombre.lower():
             print("\n***************************************************************\n")
-            print("Se encontrò el libro de nombre: {nombre}, los datos de este libro son:")
+            print(f"Se encontrò el libro de nombre: {libro["nombre"]}, los datos de este libro son:")
             print("Nombre: " + libro["nombre"])
-            print("Id: " + str(libro["id"]))
             print("Edad: " + str(libro["edad"]))
             print("Autor(a): " + libro["autor"])
             print("Categoria: " + str(libro["categoria"]))
@@ -81,14 +78,14 @@ def buscador():
 
 def mostrar_generos():
     print("""Los generos disponibles son:
-          
+        
 1 - Accion
 2 - Biografia
 3 - Fantasia
 4 - Ficcion
 5 - Romance
 0 - Salir
-          
+        
 *******************************************************
 """)
     generos_disponibles = leerJson("categorias")
@@ -102,7 +99,7 @@ def mostrar_generos():
 
     print("\n-------------------------------------------------------\n")
     print(f"Los libros encontrados para el genero {genero_print} son: \n")
-    for libro in libros:
+    for libro in libros["libros"]:
         if libro.get("categoria") == genero_escogido:
             print("Nombre: " + libro["nombre"])
     print("\n-------------------------------------------------------\n")
@@ -137,7 +134,7 @@ def registrar_usuario(datos):
     usuario["libros"]=[]
     
     datos.append(usuario)
-    print("¡Cliente registrado con éxito!")
+    print("¡Cliente registrado con éxito!\n")
     return datos
 
 def pantalla_principal():
@@ -152,9 +149,11 @@ def login(datos):
         opcion = listaOpciones("Ingrese la opcion que desea","Error, opcion no valida, intentelo de nuevo",2)
         if opcion == 1:
             datos=registrar_usuario(datos)
-            return datos
+            guardarJson("usuarios",datos)
         elif opcion == 2:
-            iniciar_sesion()
+            sesion_iniciada=iniciar_sesion()
+            if sesion_iniciada==True:
+                menu_usuarios()
         else:
             print("Saliste exitosamente")
             return datos

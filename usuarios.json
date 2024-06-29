@@ -30,18 +30,18 @@
         ]
     },
     {
-        "nombre": "Jose Daniel",
-        "documento": 1102359295,
-        "contrasena": "totoro",
-        "email": "jodacarmon@gmail.com",
-        "edad": 17,
-        "libros": []
-    },
-    {
         "nombre": "alejandra",
         "documento": 1102359888,
         "contrasena": "dante",
         "email": "correo@gmail.com",
+        "edad": 17,
+        "libros": []
+    },
+    {
+        "nombre": "Jose Daniel",
+        "documento": 1102359295,
+        "contrasena": "totoro",
+        "email": "jodacarmon@gmail.com",
         "edad": 17,
         "libros": []
     }

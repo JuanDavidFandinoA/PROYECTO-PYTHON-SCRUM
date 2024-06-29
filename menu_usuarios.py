@@ -2,6 +2,7 @@ from funcionesGlobales import *
 #menu para iniciar sesion
 def iniciar_sesion():
     datos= leerJson("usuarios")
+    sesion_iniciada=False
     print("-------------------------------------------------------------------------")
     print("")
     print("¡Inicia sesión para comenzar la aventura!\n".center(70))
@@ -9,11 +10,11 @@ def iniciar_sesion():
     print("")
 
     documento_pedido = listaOpciones("Ingresa tu número de documento","Error, solo se permiten numeros")
-    while len(str(documento_pedido)) != 10 or documento_pedido == 0:
+    while len(str(documento_pedido)) != 10:
         documento_pedido = listaOpciones("¡Documento no válido!, intentálo de nuevo o ingresa '0' para salir","Error, solo se permiten numeros")
         if documento_pedido == 0:
             print ("\nDecidiste salir de iniciar sesión, ádios!")
-            break
+            return None
 
     encontrado = False
     for usuario in datos:
@@ -21,13 +22,17 @@ def iniciar_sesion():
                 encontrado=True
                 contrasena_pedida= input("Ingresa tu contraseña: ")
 
-                while contrasena_pedida != usuario["contrasena"] or contrasena_pedida== "0":
+                while contrasena_pedida != usuario["contrasena"]:
                     contrasena_pedida = input("\nContraseña incorrecta!, Intentálo de nuevo o ingresa '0' para salir de iniciar sesión: ")
                     if contrasena_pedida == "0":
                         print ("\nDecidiste salir de iniciar sesión, ádios!")
                         break
                 if contrasena_pedida == usuario["contrasena"]:
                     print(f"\nHola {usuario['nombre']}, es un placer tenerte de vuelta!")
+                    sesion_iniciada=True
+                    return sesion_iniciada
+    if encontrado==False:
+        print(f"*No se encontrò un usuario con numero de documento {documento_pedido}")
 #menu usuarios
 def menu_usuarios():
     while(True):
@@ -142,13 +147,14 @@ def pantalla_principal():
 
 #Recibe datos de usuarios actuales, regresa datos modificados
 def login(datos):
-    pantalla_principal()
-    opcion = listaOpciones("Ingrese la opcion que desea","Error, opcion no valida, intentelo de nuevo",2)
-    if opcion == 1:
-        datos=registrar_usuario(datos)
-        return datos
-    elif opcion == 2:
-        iniciar_sesion()
-    else:
-        print("Saliste exitosamente")
-        return datos
+    while True:
+        pantalla_principal()
+        opcion = listaOpciones("Ingrese la opcion que desea","Error, opcion no valida, intentelo de nuevo",2)
+        if opcion == 1:
+            datos=registrar_usuario(datos)
+            return datos
+        elif opcion == 2:
+            iniciar_sesion()
+        else:
+            print("Saliste exitosamente")
+            return datos

@@ -17,7 +17,7 @@ def usuario_o_admin():
 #MENÚ DE ADMINISTRADOR
 def menu_administrador():
     datosLibros = leerJson("libros")
-    datosUsuarios = leerJson("usuarios")
+    usuarios = leerJson("usuarios")
     while True:
         print("""\n¡HOLA DE NUEVO ADMINISTRADOR!,¿QUE TE GUSTARIA HACER HOY?
 **************************************
@@ -52,20 +52,25 @@ def menu_administrador():
             mostrar_libros(datosLibros)
         
         elif opc == 5:
-            print()
+            usuarios = eliminar_usuarios(usuarios)
+            guardarJson("usuarios",usuarios)
         
         elif opc== 6:
-            usuarios = list(leerJson("usuarios"))
+            imprimir = True
             opcionUsuarios = listaOpciones("Ingrese el documento del usuario que desea modificar","Solo se permiten numeros, intentelo de nuevo")
             for usuario in usuarios:
                 if usuario["documento"] == opcionUsuarios:
                     usuarioModificado = modificar_usuarios(usuario)
                     usuarios[usuarios.index(usuario)] = usuarioModificado
-            print("Documento no encontrado")
+                    guardarJson("usuarios",usuarios)
+                    imprimir = False
+            if imprimir:
+                print("Documento no encontrado")
         
         elif opc==0:
             print("")
             break
+        input("Oprima Enter para continuar ")
         
 def modificar_usuarios(usuario):
     print("¿Que quieres modificar?")
@@ -84,10 +89,28 @@ def modificar_usuarios(usuario):
     elif opcion == 3:
         usuario["email"] = input("Ingrese el nuevo correo de recuperación: ")
     elif opcion == 4:
-        pass
+        if len(usuario["libros"]) != 0:
+            for libro in range(len(usuario["libros"])):
+                print(str(libro + 1) + " - " + usuario["libros"][libro])
+            print("0 - Salir")
+            libroOpcion = listaOpciones("Ingrese el numero del libro que desea eliminar","Numero no valido, intentelo de nuevo",len(usuario["libros"]))
+            if libroOpcion != 0:
+                usuario["libros"].remove(usuario["libros"][libroOpcion - 1])
+        else:
+            print("Este usuario no tiene libros comprados")
     elif opcion == 5:
         pass
     return usuario
+
+def eliminar_usuarios(usuarios):
+    for usuario in range(len(usuarios)):
+        print(str(usuario + 1) + " - " + usuarios[usuario]["nombre"])
+    print("0 - Salir")
+    eliminar_usuario = listaOpciones("Ingrese el numero del usuario a eliminar","Numero no valido, ingreselo de nuevo",len(usuarios))
+    if eliminar_usuario != 0:
+        usuarios.remove(usuarios[eliminar_usuario - 1])
+    return usuarios
+
 
 def contraseña_admin():
     contra="admin12345"
@@ -142,13 +165,13 @@ def mostrar_libros(libros):
     print("")
     for libro in libros["libros"]:
         print("**********************************************")
-        print(f"Nombre: {libro["nombre"]}")
-        print(f"Edad: {libro["edad"]}")
-        print(f"Autor(a): {libro["autor"]}")
-        print(f"Categoría: {libro["categoria"]}")
-        print(f"Descripción: {libro["descripcion"]}")
-        print(f"Publicación: {libro["publicacion"]}")
-        print(f"Stock: {libro["stock"]}")
+        print("Nombre: " + libro["nombre"])
+        print("Edad: " + str(libro["edad"]))
+        print("Autor(a): " + libro["autor"])
+        print("Categoría: " + str(libro["categoria"]))
+        print("Descripción: " + libro["descripcion"])
+        print("Publicación: " + str(libro["publicacion"]))
+        print("Stock: " + str(libro["stock"]))
         print("**********************************************\n")
 
 

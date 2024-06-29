@@ -1,7 +1,7 @@
 [
     {
-        "nombre": "Eder Gil",
-        "documento": 1234567890,
+        "nombre": "Luis Eder",
+        "documento": 1095797783,
         "contrasena": "Amoamiperro@",
         "email": "edersito@gmail.com",
         "edad": 14,
@@ -15,27 +15,17 @@
         "contrasena": "konan@",
         "email": "Nicolasito@gmail.com",
         "edad": 16,
-        "libros": [
-            "Yo,robot"
-        ]
+        "libros": []
     },
     {
         "nombre": "Juan Fandino",
-        "documento": 109,
+        "documento": 1234567890,
         "contrasena": "Amoelpipi@",
         "email": "Nicolasito@gmail.com",
         "edad": 16,
         "libros": [
             "Yo,robot"
         ]
-    },
-    {
-        "nombre": "alejandra",
-        "documento": 1102359888,
-        "contrasena": "dante",
-        "email": "correo@gmail.com",
-        "edad": 17,
-        "libros": []
     },
     {
         "nombre": "Jose Daniel",

@@ -66,7 +66,7 @@ def buscador():
     for libro in datos_libros["libros"]:
         if (libro["nombre"]).lower()==nombre.lower():
             print("\n***************************************************************\n")
-            print(f"Se encontrò el libro de nombre: {libro["nombre"]}, los datos de este libro son:")
+            print("Se encontrò el libro de nombre: " + libro["nombre"] + ", los datos de este libro son:")
             print("Nombre: " + libro["nombre"])
             print("Edad: " + str(libro["edad"]))
             print("Autor(a): " + libro["autor"])

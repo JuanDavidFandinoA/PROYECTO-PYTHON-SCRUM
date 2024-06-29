@@ -2,7 +2,6 @@ from funcionesGlobales import *
 from menu_administrador import*
 from menu_usuarios import*
 
-datosUsuarios = leerJson("usuarios")
 
 while True:
     datosUsuarios= leerJson("usuarios")
@@ -18,5 +17,3 @@ while True:
         break
     else:
         print("Ingresa un valor valido")
-
-    guardarJson("usuarios",datosUsuarios)

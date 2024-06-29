@@ -14,7 +14,6 @@ def usuario_o_admin():
     opcion = listaOpciones("Ingrese la opcion","Numero no valido, ingrese de nuevo",2)
     return opcion
 
-
 #MENÚ DE ADMINISTRADOR
 def menu_administrador():
     datosLibros = leerJson("libros")
@@ -34,36 +33,27 @@ def menu_administrador():
 
         #AGREGAR UN LIBRO AL JSON "LIBROS",  NO DEVUELVE NADA
         if opc== 1:
-            libros=leerJson("libros")
-            nombre_agregar_libro=input("Ingresa el nombre del libro que deseas agregar: ")
 
-            ### COMPROBACION PARA VERIFICAR QUE EL NOMBRE INGRESADO NO SE ENCUENTRE YA EN EL JSON###
-            while True:
-                comprobacion_nombre_libro=False
-                for libro in libros["libros"]:
-                    if libro["nombre"]==nombre_agregar_libro:
-                        print(f"Ya se encuentra un libro de nombre: {nombre_agregar_libro}, intenta con otro libro")
-                        nombre_agregar_libro=input("Ingresa el nombre del libro que deseas agregar: ")
-                        comprobacion_nombre_libro=True
-                if comprobacion_nombre_libro==False:
-                    break
-            ##################################################################
-            
-            edad=input("Ingresa la edad minima del libro para ser comprado")
-            
+            datos=Crear_libro(datosLibros)
+            guardarJson("libros",datos)  
+
         elif opc== 2:
             libros = leerJson("libros")
             opcionLibro = input("Ingrese el nombre del libro que desea modificar: ")
             for libro in libros:
                 if libro["nombre"] == opcionLibro:
                     datos = modificar_libro(datosLibros)
+        
         elif opc==3:
             datosLibros = eliminar_libro(datosLibros)
             guardarJson("libros",datosLibros)
+        
         elif opc == 4:
-            print("JOSE")
+            mostrar_libros(datosLibros)
+        
         elif opc == 5:
             print()
+        
         elif opc== 6:
             usuarios = list(leerJson("usuarios"))
             opcionUsuarios = listaOpciones("Ingrese el documento del usuario que desea modificar","Solo se permiten numeros, intentelo de nuevo")
@@ -72,6 +62,7 @@ def menu_administrador():
                     usuarioModificado = modificar_usuarios(usuario)
                     usuarios[usuarios.index(usuario)] = usuarioModificado
             print("Documento no encontrado")
+        
         elif opc==0:
             print("")
             break
@@ -110,21 +101,62 @@ def contraseña_admin():
 #****************** CRUD LIBROS ******************#
 
 # C-REATE 
+def Crear_libro(libros):
+    categorias_list=leerJson("categorias")
+    nombre_agregar_libro=input("Ingresa el nombre del libro que deseas agregar: ")
 
-def Crear_libro(datos):
-    None
+    ### COMPROBACION PARA VERIFICAR QUE EL NOMBRE INGRESADO NO SE ENCUENTRE YA EN EL JSON###
+    while True:
+        comprobacion_nombre_libro=False
+        for libro in libros["libros"]:
+            if libro["nombre"]==nombre_agregar_libro:
+                print(f"Ya se encuentra un libro de nombre: {nombre_agregar_libro}, intenta con otro libro")
+                nombre_agregar_libro=input("Ingresa el nombre del libro que deseas agregar: ")
+                comprobacion_nombre_libro=True
+        if comprobacion_nombre_libro==False:
+            break
+    ##################################################################
+    
+    edad=listaOpciones("Ingresa la edad minima del libro para ser comprado: ","El valor ingresado debe ser un numero")
+    autor=input(f"Ingresa el autor(a) del libro: {nombre_agregar_libro}: ")
+    categoria=listaOpciones("""\nLos generos disponibles son:
+          
+1 - Accion
+2 - Biografia
+3 - Fantasia
+4 - Ficcion
+5 - Romance
+0 - Salir
+          
+*Ingresa el genero que deseas agregar al libro""","Debes ingresar un numero entre los géneros mostrados",5)
+
+    descripcion=input(f"Ingresa una descripcion para el libro {nombre_agregar_libro}: ")
+    publicacion=listaOpciones("Ingresa el año de publicación del libro","Se debe ingresar un valor numérico")
+    stock=listaOpciones(f"Ingresa la cantidad de unidades que hay del libro {nombre_agregar_libro}","Se debe ingresar un valor numérico")
+    libros["libros"].append({"nombre":nombre_agregar_libro,"edad":edad,"autor":autor,"categoria":categoria,"descripcion":descripcion,"publicacion":publicacion,"stock":stock})
+
+    return libros
 
 # R-EAD 
+def mostrar_libros(libros):
+    print("")
+    for libro in libros["libros"]:
+        print("**********************************************")
+        print(f"Nombre: {libro["nombre"]}")
+        print(f"Edad: {libro["edad"]}")
+        print(f"Autor(a): {libro["autor"]}")
+        print(f"Categoría: {libro["categoria"]}")
+        print(f"Descripción: {libro["descripcion"]}")
+        print(f"Publicación: {libro["publicacion"]}")
+        print(f"Stock: {libro["stock"]}")
+        print("**********************************************\n")
 
-def mostrar_libros(datos):
-    None
 
 # U-PDATE
-
 def modificar_libro(datos):
-   datos=dict(datos)
-   nombre= input("ingrese el nombre del libro que desea modificar:")
-   for i in range(len(datos["libros"])):
+    datos=dict(datos)
+    nombre= input("ingrese el nombre del libro que desea modificar:")
+    for i in range(len(datos["libros"])):
         if datos["libros"][i]["nombre"] == nombre:
 
             while True:
@@ -201,6 +233,6 @@ def eliminar_libro(datos):
             elif opc ==2:
                 print("Cancelado con exito")
                 return datos
-           
+
     print("plan o paquete no encontrado")
     return datos

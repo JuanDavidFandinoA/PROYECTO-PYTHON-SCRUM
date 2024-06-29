@@ -114,18 +114,18 @@ def registrar_usuario(datos):
     while True:
         comprobacion_documento=False
         for users in datos:
-            if users["documento"]!=documento_usuario_temp:
+            if users["documento"]==documento_usuario_temp:
                 print(f"Ya se encuentra un usuario con documento: {documento_usuario_temp}")
                 documento_usuario_temp= listaOpciones("Ingrese el documento","Error, documento no valido")
                 comprobacion_documento=True
+            if len(str(documento_usuario_temp))!=10:
+                print("El documento ingresado debe contener 10 numeros")
+                documento_usuario_temp= listaOpciones("Ingrese el documento","Error, documento no valido")
+                comprobacion_documento=True  
         if comprobacion_documento==False:
             break
         
-
-
-
-    while len(str(usuario["documento"])) != 10 or usuario["documento"] == 0:
-        usuario["documento"] = listaOpciones("¡Documento no válido! Intentálo de nuevo","Error, solo se permiten numeros")
+    usuario["documento"] = documento_usuario_temp
     usuario["contrasena"] = input("Ingrese su contraseña: ")
     usuario["email"] = input("Ingrese un correo de recuperación: ")
     usuario["edad"] = listaOpciones("Ingrese la edad","Edad no valida, intentelo de nuevo",99)

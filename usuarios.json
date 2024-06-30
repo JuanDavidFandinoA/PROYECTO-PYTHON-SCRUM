@@ -24,7 +24,8 @@
         "email": "Nicolasito@gmail.com",
         "edad": 16,
         "libros": [
-            "Yo,robot"
+            "Yo,robot",
+            "Bajo la misma estrella"
         ]
     },
     {
@@ -33,6 +34,9 @@
         "contrasena": "totoro",
         "email": "micorreo@gmail.com",
         "edad": 17,
-        "libros": []
+        "libros": [
+            "El ciclo del Eterno Emperador",
+            "Bajo la misma estrella"
+        ]
     }
 ]

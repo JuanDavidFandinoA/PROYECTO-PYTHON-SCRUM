@@ -74,6 +74,7 @@ def buscador():
             print("Categoria: " + str(libro["categoria"]))
             print("Descripcion: " + libro["descripcion"])
             print("Publicacion: " + str(libro["publicacion"]))
+            print("Precio: " + str(libro["precio"]))
             return None
     print(f"No se encontrò el libro de nombre: {nombre}")
 

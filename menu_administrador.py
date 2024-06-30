@@ -143,21 +143,29 @@ def Crear_libro(libros):
     edad=listaOpciones("Ingresa la edad minima del libro para ser comprado: ","El valor ingresado debe ser un numero")
     autor=input(f"Ingresa el autor(a) del libro: {nombre_agregar_libro}: ")
     categoria=listaOpciones("""\nLos generos disponibles son:
-          
+        
 1 - Accion
 2 - Biografia
 3 - Fantasia
 4 - Ficcion
 5 - Romance
 0 - Salir
-          
+        
 *Ingresa el genero que deseas agregar al libro""","Debes ingresar un numero entre los géneros mostrados",5)
 
     descripcion=input(f"Ingresa una descripcion para el libro {nombre_agregar_libro}: ")
     publicacion=listaOpciones("Ingresa el año de publicación del libro","Se debe ingresar un valor numérico")
     stock=listaOpciones(f"Ingresa la cantidad de unidades que hay del libro {nombre_agregar_libro}","Se debe ingresar un valor numérico")
-    libros["libros"].append({"nombre":nombre_agregar_libro,"edad":edad,"autor":autor,"categoria":categoria,"descripcion":descripcion,"publicacion":publicacion,"stock":stock})
-
+    precio=listaOpciones(f"Ingresa el precio del libro","Se debe ingresar un valor numerico")
+    libros["libros"].append({"nombre":nombre_agregar_libro,
+                            "edad":edad,
+                            "autor":autor,
+                            "categoria":categoria,
+                            "descripcion":descripcion,
+                            "publicacion":publicacion,
+                            "stock":stock,
+                            "precio":precio})
+    print("Se agregó correctamente el libro al json 'libros")
     return libros
 
 # R-EAD 
@@ -172,6 +180,7 @@ def mostrar_libros(libros):
         print("Descripción: " + libro["descripcion"])
         print("Publicación: " + str(libro["publicacion"]))
         print("Stock: " + str(libro["stock"]))
+        print("Precio: " + str(libro["precio"]))
         print("**********************************************\n")
 
 

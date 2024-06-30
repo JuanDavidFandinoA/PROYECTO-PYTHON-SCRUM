@@ -7,7 +7,8 @@
             "categoria": 1,
             "descripcion": "La historia de odiseo como jamas la hubieras imaginado",
             "publicacion": 2019,
-            "stock": 12
+            "stock": 12,
+            "precio": 50000
         },
         {
             "nombre": "Padre: del seminario al narcotrafico",
@@ -16,7 +17,8 @@
             "categoria": 1,
             "descripcion": "son las memorias y vivencias de un narco espa\u00f1ol y sus inicios en la mafia",
             "publicacion": 2021,
-            "stock": 45
+            "stock": 45,
+            "precio": 50000
         },
         {
             "nombre": "Esperando el diluvio",
@@ -25,7 +27,8 @@
             "categoria": 1,
             "descripcion": "Asesino mata a 3 mujeres en Glasgow, pero hoy en dia nadie sabe quien fue ",
             "publicacion": 2022,
-            "stock": 82
+            "stock": 82,
+            "precio": 50000
         },
         {
             "nombre": "La sociedad de la nieve",
@@ -34,7 +37,8 @@
             "categoria": 2,
             "descripcion": "Avion Uruguayo se estrella en los andes y los sobrevivientes cuentas sus vivencias",
             "publicacion": 2008,
-            "stock": 0
+            "stock": 0,
+            "precio": 50000
         },
         {
             "nombre": "Diana: su verdadera historia",
@@ -43,7 +47,8 @@
             "categoria": 2,
             "descripcion": "Una forma diferente de ver la monarquia britanica y todo lo que conlleva ser proclamada princesa-reina de inglaterra",
             "publicacion": 1992,
-            "stock": 42
+            "stock": 42,
+            "precio": 50000
         },
         {
             "nombre": "Steve Jobs",
@@ -52,7 +57,8 @@
             "categoria": 2,
             "descripcion": "Libro biografico de steve jobs y como ascendio a la cima del mundo tecnologico",
             "publicacion": 2011,
-            "stock": 21
+            "stock": 21,
+            "precio": 50000
         },
         {
             "nombre": "Harry Potter y la piedra filosofal",
@@ -61,7 +67,8 @@
             "categoria": 3,
             "descripcion": "La historia del ni\u00f1o mago que sobrevivio",
             "publicacion": 1997,
-            "stock": 50
+            "stock": 50,
+            "precio": 50000
         },
         {
             "nombre": "El Hobbit",
@@ -70,7 +77,8 @@
             "categoria": 3,
             "descripcion": "El hobbit Bilbo Bols\u00f3n vive una vida tranquila hasta que el mago Gandalf aparece y le encomienda una misi\u00f3n",
             "publicacion": 1937,
-            "stock": 10
+            "stock": 10,
+            "precio": 50000
         },
         {
             "nombre": "El Principito",
@@ -79,7 +87,8 @@
             "categoria": 3,
             "descripcion": "Adulto con miedo a madurar",
             "publicacion": 1943,
-            "stock": 61
+            "stock": 61,
+            "precio": 50000
         },
         {
             "nombre": "Soy Leyenda",
@@ -88,7 +97,8 @@
             "categoria": 4,
             "descripcion": "Una guerra bacteriologica que acabo con el mundo y la constante lucha del protagonista de sobrevivir a los vampiros",
             "publicacion": 1954,
-            "stock": 54
+            "stock": 54,
+            "precio": 50000
         },
         {
             "nombre": "Dune",
@@ -97,7 +107,8 @@
             "categoria": 4,
             "descripcion": "Una historia fuera de este mundo ",
             "publicacion": 1965,
-            "stock": 0
+            "stock": 0,
+            "precio": 50000
         },
         {
             "nombre": "Yo,robot",
@@ -106,7 +117,8 @@
             "categoria": 4,
             "descripcion": "relatos de ficcion sobre la robotica y sus 3 leyes mas importantes, y el pensamiento humano en robots inteligentes ",
             "publicacion": 1950,
-            "stock": 19
+            "stock": 19,
+            "precio": 50000
         },
         {
             "nombre": "Ugly Love",
@@ -115,7 +127,8 @@
             "categoria": 5,
             "descripcion": "El no quiere amor, ella no tiene tiempo para el amor",
             "publicacion": 2014,
-            "stock": 22
+            "stock": 22,
+            "precio": 50000
         },
         {
             "nombre": "Amor en tiempos de colera",
@@ -124,7 +137,8 @@
             "categoria": 5,
             "descripcion": "el verdadero amor que perdura y supera las adversidades de la vida",
             "publicacion": 1985,
-            "stock": 4
+            "stock": 4,
+            "precio": 50000
         },
         {
             "nombre": "Bajo la misma estrella",
@@ -133,7 +147,8 @@
             "categoria": 5,
             "descripcion": "Ella piensa que las puertas del amor se le cierran por su cancer, el la va a amar hasta el fin de sus dias",
             "publicacion": 2014,
-            "stock": 33
+            "stock": 33,
+            "precio": 50000
         },
         {
             "nombre": "El ciclo del Eterno Emperador",
@@ -142,7 +157,8 @@
             "categoria": 3,
             "descripcion": "Esta es la historia de Vintanelalandali, decimoseptima encarnaci\u00f3n del  Eterno Emperador, educada desde ni\u00f1a para tomar las riendas del imperio.",
             "publicacion": 2021,
-            "stock": 22
+            "stock": 22,
+            "precio": 50000
         },
         {
             "nombre": "Pie de guerra",
@@ -151,7 +167,18 @@
             "categoria": 1,
             "descripcion": "x",
             "publicacion": 2015,
-            "stock": 10
+            "stock": 10,
+            "precio": 50000
+        },
+        {
+            "nombre": "xx",
+            "edad": 0,
+            "autor": "mm",
+            "categoria": 5,
+            "descripcion": "amor",
+            "publicacion": 2000,
+            "stock": 20,
+            "precio": 20000
         }
     ]
 }

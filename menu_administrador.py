@@ -40,7 +40,7 @@ def menu_administrador():
         elif opc== 2:
             libros = leerJson("libros")
             opcionLibro = input("Ingrese el nombre del libro que desea modificar: ")
-            for libro in libros:
+            for libro in libros["libros"]:
                 if libro["nombre"] == opcionLibro:
                     datos = modificar_libro(datosLibros)
         

@@ -143,6 +143,15 @@
             "descripcion": "Esta es la historia de Vintanelalandali, decimoseptima encarnaci\u00f3n del  Eterno Emperador, educada desde ni\u00f1a para tomar las riendas del imperio.",
             "publicacion": 2021,
             "stock": 22
+        },
+        {
+            "nombre": "Pie de guerra",
+            "edad": 12,
+            "autor": "X",
+            "categoria": 1,
+            "descripcion": "x",
+            "publicacion": 2015,
+            "stock": 10
         }
     ]
 }

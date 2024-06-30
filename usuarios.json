@@ -34,5 +34,13 @@
         "email": "jodacarmon@gmail.com",
         "edad": 17,
         "libros": []
+    },
+    {
+        "nombre": "Juan",
+        "documento": 1597894562,
+        "contrasena": "contrasena",
+        "email": "correo@gmail.com",
+        "edad": 15,
+        "libros": []
     }
 ]

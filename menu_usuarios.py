@@ -29,12 +29,13 @@ def iniciar_sesion():
                         break
                 if contrasena_pedida == usuario["contrasena"]:
                     print(f"\nHola {usuario['nombre']}, es un placer tenerte de vuelta!")
-                    sesion_iniciada=True
-                    return sesion_iniciada
+                    return documento_pedido
     if encontrado==False:
         print(f"*No se encontrò un usuario con numero de documento {documento_pedido}")
+        documento_pedido=0
+        return documento_pedido
 #menu usuarios
-def menu_usuarios():
+def menu_usuarios(documento_usuario):
     while True:
         print("""********************************************************
 
@@ -151,9 +152,9 @@ def login(datos):
             datos=registrar_usuario(datos)
             guardarJson("usuarios",datos)
         elif opcion == 2:
-            sesion_iniciada=iniciar_sesion()
-            if sesion_iniciada==True:
-                menu_usuarios()
+            documento_usuario=iniciar_sesion()
+            if documento_usuario!=0:
+                menu_usuarios(documento_usuario)
         else:
             print("Saliste exitosamente")
             return datos

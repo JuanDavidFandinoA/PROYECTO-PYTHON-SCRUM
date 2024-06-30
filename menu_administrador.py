@@ -42,7 +42,8 @@ def menu_administrador():
             opcionLibro = input("Ingrese el nombre del libro que desea modificar: ")
             for libro in libros["libros"]:
                 if libro["nombre"] == opcionLibro:
-                    datos = modificar_libro(datosLibros)
+                    datos = modificar_libro(libros,opcionLibro)
+                    guardarJson("libros",datos)
         
         elif opc==3:
             datosLibros = eliminar_libro(datosLibros)
@@ -110,7 +111,6 @@ def eliminar_usuarios(usuarios):
     if eliminar_usuario != 0:
         usuarios.remove(usuarios[eliminar_usuario - 1])
     return usuarios
-
 
 def contraseña_admin():
     contra="admin12345"
@@ -185,26 +185,25 @@ def mostrar_libros(libros):
 
 
 # U-PDATE
-def modificar_libro(datos):
+def modificar_libro(datos,nombre):
     datos=dict(datos)
-    nombre= input("ingrese el nombre del libro que desea modificar:")
     for i in range(len(datos["libros"])):
         if datos["libros"][i]["nombre"] == nombre:
-
             while True:
                 print("¿Que te gustaria cambiar?")
                 print("******************************")
                 print("1). Para modificar el Nombre: ")
-                print("2). Para modificar la edad: ")
+                print("2). Para modificar la Edad: ")
                 print("3). Para modificar el Autor: ")
-                print("4). Para modificar la ategoria: ")
-                print("5). Para modificar la Dscripcion: ")
+                print("4). Para modificar la Categoria: ")
+                print("5). Para modificar la Decripcion: ")
                 print("6). Para modificar la Publicacion: ")
                 print("7). Para modificar el Stock: ")
-                
+                print("8). Para modificar el Precio: ")
+            
                 print("0). Para salir ")
                 
-                opc= int(input(" Ingrese la opcion: "))
+                opc= listaOpciones(" Ingrese la opcion ","Se debe ingresar un valor numerico")
 
                 if opc == 1:
                     datos["libros"][i]["nombre"]= input("Ingrese el nuevo Nombre: ")
@@ -212,7 +211,7 @@ def modificar_libro(datos):
                     print("----------------------------------")
 
                 elif opc == 2:
-                    datos["libros"][i]["edad"]= input("Ingrese la nueva Edad: ")
+                    datos["libros"][i]["edad"]= listaOpciones("Ingrese la nueva Edad minima para leer el libro: ","La edad ingresada debe ser un valor númerico")
                     print(" ¡EDAD GUARDADA CON EXITO!")
                     print("----------------------------------")
 
@@ -224,7 +223,7 @@ def modificar_libro(datos):
 
 
                 elif opc == 4:
-                    datos["libros"][i]["categoria"]= input("Ingrese la nueva categoria: ")
+                    datos["libros"][i]["categoria"]= listaOpciones("Ingrese la nueva categoria: ","La categoría ingresada debe ser un valor númerico")
                     print(" ¡CATEGORIA GUARDADA CON EXITO!")
                     print("----------------------------------")
 
@@ -236,20 +235,26 @@ def modificar_libro(datos):
 
 
                 elif opc == 6:
-                    datos["libros"][i]["publicacion"]= input("Ingrese el nuevo año de publicacion: ")
+                    datos["libros"][i]["publicacion"]= listaOpciones("Ingrese el nuevo año de publicacion: ","El año de publicación ingresado debe ser un valor númerico")
                     print(" ¡AÑO DE PUBLICACION GUARDADO CON EXITO!")
                     print("----------------------------------")
 
 
                 elif opc == 7:
-                    datos["libros"][i]["stock"]= input("Ingrese el nuevo Stock:")
+                    datos["libros"][i]["stock"]= listaOpciones("Ingrese el nuevo Stock:","La cantidad de stock ingresado debe ser un valor númerico")
                     print(" ¡STOCK GUARDADO CON EXITO!")
                     print("----------------------------------")
+
+                elif opc == 8:
+                    datos["libros"][i]["precio"]= listaOpciones("Ingrese el nuevo Precio","El precio ingresado debe ser un valor númerico")
+                    print(" ¡PRECIO GUARDADO CON EXITO!")
+                    print("----------------------------------")
+                
                 
                 elif opc == 0:
                     break
             break
-        return datos   
+    return datos   
 
 # D-ELETE libro
 def eliminar_libro(datos):

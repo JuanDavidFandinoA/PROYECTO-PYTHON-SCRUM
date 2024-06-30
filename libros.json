@@ -152,33 +152,13 @@
         },
         {
             "nombre": "El ciclo del Eterno Emperador",
-            "edad": 12,
+            "edad": 11,
             "autor": "Laura Gallego",
             "categoria": 3,
             "descripcion": "Esta es la historia de Vintanelalandali, decimoseptima encarnaci\u00f3n del  Eterno Emperador, educada desde ni\u00f1a para tomar las riendas del imperio.",
             "publicacion": 2021,
             "stock": 22,
-            "precio": 50000
-        },
-        {
-            "nombre": "Pie de guerra",
-            "edad": 12,
-            "autor": "X",
-            "categoria": 1,
-            "descripcion": "x",
-            "publicacion": 2015,
-            "stock": 10,
-            "precio": 50000
-        },
-        {
-            "nombre": "xx",
-            "edad": 0,
-            "autor": "mm",
-            "categoria": 5,
-            "descripcion": "amor",
-            "publicacion": 2000,
-            "stock": 20,
-            "precio": 20000
+            "precio": 40000
         }
     ]
 }

@@ -42,11 +42,12 @@ def menu_usuarios(documento_usuario):
 1 - Acceder al buscador de libros
 2 - Acceder a los generos disponibles
 3 - Comprar libros
+4 - Ver el carrito
 0 - Salir
 
 ********************************************************
 """)
-        opcion = listaOpciones("Ingrese la opcion que desea escoger","Por favor ingrese una opcion valida",3)
+        opcion = listaOpciones("Ingrese la opcion que desea escoger","Por favor ingrese una opcion valida",4)
         print("\n********************************************************\n")
         
         if opcion == 1:
@@ -55,10 +56,46 @@ def menu_usuarios(documento_usuario):
             mostrar_generos()
         elif opcion==3:
             comprar_libro(documento_usuario)
+        elif opcion==4:
+            carrito(documento_usuario)
         else:
             print("Salida exitosa :) \n")
             break
         input("Oprima Enter para continuar\n")
+
+def carrito(documento):
+    print("""
+********************************************************
+          
+1 - Enlistar libros en el carrito
+2 - Comprar los libros del carrito
+0 - Salir
+          
+********************************************************
+""")
+    opcion = listaOpciones("Elija la opcion deseada","Opcion no valida, intentelo de nuevo",2)
+    usuarios = leerJson("usuarios")
+    for usuario in usuarios:
+        if usuario.get("documento") == documento:
+            if opcion == 1:
+                if len(usuario.get("libros")) != 0:
+                    for libro in range(len(usuario.get("libros"))):
+                        print(str(libro + 1) + " - " + usuario.get("libros")[libro])
+                    print("0 - Salir")
+                    opcionLibro = listaOpciones("Si desea eliminar un libro ingrese su numero, o ingrese 0 para salir","Opcion no valida",len(usuario.get("libros")))
+                    if opcionLibro != 0:
+                        usuarios[usuarios.index(usuario)]["libros"].remove(
+                        usuario["libros"][opcionLibro - 1])
+                    else:
+                        print("Salida exitosa")
+                    guardarJson("usuarios",usuarios)
+                else:
+                    print("Usted no tiene libros en el carrito!")
+            if opcion == 2:
+                if len(usuario.get("libros")) == 0:
+                    print("Usted no tiene libros en el carrito!")
+                usuarios[usuarios.index(usuario)]["libros"] = []
+                guardarJson("usuarios",usuarios)
 
 def buscador():
     nombre = input("Ingrese el nombre del libro que desea buscar: ")

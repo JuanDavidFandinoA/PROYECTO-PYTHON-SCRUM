@@ -7,7 +7,7 @@
             "categoria": 1,
             "descripcion": "La historia de odiseo como jamas la hubieras imaginado",
             "publicacion": 2019,
-            "stock": 12,
+            "stock": 11,
             "precio": 50000
         },
         {
@@ -57,7 +57,7 @@
             "categoria": 2,
             "descripcion": "Libro biografico de steve jobs y como ascendio a la cima del mundo tecnologico",
             "publicacion": 2011,
-            "stock": 21,
+            "stock": 20,
             "precio": 50000
         },
         {
@@ -77,7 +77,7 @@
             "categoria": 3,
             "descripcion": "El hobbit Bilbo Bols\u00f3n vive una vida tranquila hasta que el mago Gandalf aparece y le encomienda una misi\u00f3n",
             "publicacion": 1937,
-            "stock": 10,
+            "stock": 9,
             "precio": 50000
         },
         {
@@ -157,7 +157,7 @@
             "categoria": 3,
             "descripcion": "Esta es la historia de Vintanelalandali, decimoseptima encarnaci\u00f3n del  Eterno Emperador, educada desde ni\u00f1a para tomar las riendas del imperio.",
             "publicacion": 2021,
-            "stock": 20,
+            "stock": 19,
             "precio": 40000
         }
     ]
